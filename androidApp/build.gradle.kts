@@ -5,11 +5,11 @@ plugins {
 
 android {
     namespace = "com.signin.kmm.samplewebview.android"
-    compileSdk = 31
+    compileSdk = 32
     defaultConfig {
         applicationId = "com.signin.kmm.samplewebview.android"
         minSdk = 23
-        targetSdk = 31
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
     }
