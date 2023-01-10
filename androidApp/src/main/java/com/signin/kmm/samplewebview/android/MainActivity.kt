@@ -41,6 +41,7 @@ fun CustomWebview() {
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
             webViewClient = WebViewClient()
+            settings.javaScriptEnabled = true
             loadUrl(webviewURL)
         }
     }, update = { it.loadUrl(webviewURL) })
