@@ -51,6 +51,7 @@ fun CustomWebview() {
                         view?.context?.startActivity(intent)
                         return true
                     }
+                }
             }
             settings.javaScriptEnabled = true
             loadUrl(webviewURL)
