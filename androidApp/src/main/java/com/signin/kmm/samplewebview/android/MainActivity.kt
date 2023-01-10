@@ -1,7 +1,9 @@
 package com.signin.kmm.samplewebview.android
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.ViewGroup
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.activity.ComponentActivity
@@ -40,7 +42,16 @@ fun CustomWebview() {
                 ViewGroup.LayoutParams.MATCH_PARENT,
                 ViewGroup.LayoutParams.MATCH_PARENT
             )
-            webViewClient = WebViewClient()
+            webViewClient = object : WebViewClient() {
+                override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                    if (request?.url?.host == "www.finnomena.com") {
+                        return false
+                    } else {
+                        val intent = Intent(Intent.ACTION_VIEW, request?.url)
+                        view?.context?.startActivity(intent)
+                        return true
+                    }
+            }
             settings.javaScriptEnabled = true
             loadUrl(webviewURL)
         }
