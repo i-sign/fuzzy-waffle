@@ -3,20 +3,15 @@ import shared
 import WebKit
 
 struct ContentView: View {
-    @State private var showLoginForm: Bool = true
-    @State private var url = "https://www.finnomena.com"
-
-	let greet = Greeting().greet()
-
-	var body: some View {
-		WebView(url: url)
-	}
+    var body: some View {
+        WebView()
+    }
 }
 
 struct ContentView_Previews: PreviewProvider {
-	static var previews: some View {
-		ContentView()
-	}
+    static var previews: some View {
+        ContentView()
+    }
 }
 
 extension WKWebView {
@@ -28,14 +23,13 @@ extension WKWebView {
     }
 }
 
-struct WebView : UIViewRepresentable {
-    var url: String
-
-    func makeUIView(context: Context) -> WKWebView  {
-        return WKWebView()
+struct WebView: UIViewControllerRepresentable {
+    func makeUIViewController(context: Context) -> WebViewController {
+        // Do some configurations here if needed.
+        return WebViewController()
     }
-
-    func updateUIView(_ uiView: WKWebView, context: Context) {
-        uiView.load(url)
+    
+    func updateUIViewController(_ uiViewController: WebViewController, context: Context) {
+        // Updates the state of the specified view controller with new information from SwiftUI.
     }
 }
